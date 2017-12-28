@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>{% block title %}{% endblock %} </title>
+    <link rel='stylesheet' href='static/css/style.css'>
+    <link rel='stylesheet' href='https://rawgit.com/meetmangukiya/cdn/master/bootstrap.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <div id='navbar' class='container'>
+      <nav class='row'>
+        <div class='col-md-4 nav-item-container'>
+          <ul>
+            <li class='col-md-6'>
+              <a href='{{ url_for("about") }}' class='fa fa-user'>&nbsp; About</a>
+            </li>
+            <li class='col-md-6'>
+              <a href='{{ url_for("products") }}' class='fa fa-cogs'>&nbsp; Products</a>
+            </li>
+          </ul>
+        </div>
+        <div class='col-md-4' id='logo-container'>
+          <a href='{{ url_for("home") }}'><img src='static/logo.svg'></a>
+        </div>
+        <div class='col-md-4 nav-item-container'>
+          <ul>
+            <li class='col-md-6'>
+              <a href='{{ url_for("downloads") }}' class='fa fa-download'>&nbsp; Downloads</a>
+            </li>
+            <li class='col-md-6'>
+              <a href='{{ url_for("contact") }}' class='fa fa-address-book'>&nbsp; Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <hr>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <div class='container footer-container'>
+      <hr>
+      <footer class='row'>
+        <p class='col-md-3 col-xs-12 col-sm-12'>
+          Copyright 2017 &copy; Flock Tex
+        </p>
+        <p class='col-md-6 col-xs-12 col-sm-12'>
+          Our company specializes in providing a high quality laser cutting solution customized for the textile industry.
+        </p>
+        <p class='col-md-3 col-xs-12 col-sm-12'>
+          <a href='' class='fa fa-2x fa-facebook'></a>&nbsp;
+          <a href='' class='fa fa-2x fa-twitter'></a>&nbsp;
+          <a href='' class='fa fa-2x fa-instagram'></a>&nbsp;
+          <a href='' class='fa fa-2x fa-linkedin'></a>&nbsp;
+          <a href='' class='fa fa-2x fa-github'></a>
+        </p>
+      </footer>
+    </div>
+
+  </body>
+
+</html>
