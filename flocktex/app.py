@@ -1,3 +1,5 @@
+import os
+import shutil
 import sys
 
 from flask import Flask
@@ -37,6 +39,12 @@ def contact():
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":
-        freezer.freeze()
+        try:
+            shutil.rmtree(os.path.join(os.path.dirname(__file__), 'build'))
+        except FileNotFoundError:
+            # build dir doesn't exist; do nothing.
+            pass
+        finally:
+            freezer.freeze()
     else:
         app.run(debug=True)
