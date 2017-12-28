@@ -15,22 +15,22 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/about')
+@app.route('/about/')
 def about():
     return render_template('about.html')
 
 
-@app.route('/products')
+@app.route('/products/')
 def products():
     return render_template('products.html')
 
 
-@app.route('/downloads')
+@app.route('/downloads/')
 def downloads():
     return render_template('downloads.html')
 
 
-@app.route('/contact')
+@app.route('/contact/')
 def contact():
     return render_template('contact.html')
 
