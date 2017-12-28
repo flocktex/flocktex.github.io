@@ -50,18 +50,18 @@
       <hr>
       <footer class='row'>
         <p class='col-md-3 col-xs-12 col-sm-12'>
-          Copyright 2017 &copy; Flock Tex
+          {{copyright_from_year}}-{{copyright_to_year}} &copy; Flock Tex
         </p>
         <p class='col-md-6 col-xs-12 col-sm-12'>
-          <strong>Bio</strong><br>
-          Our company specializes in providing a high quality laser cutting solution customized for the textile industry.
+          <strong>Bio</strong><br>{{company_bio}}
         </p>
         <p class='col-md-3 col-xs-12 col-sm-12'>
-          <a href='' class='fa fa-2x fa-facebook'></a>&nbsp;
-          <a href='' class='fa fa-2x fa-twitter'></a>&nbsp;
-          <a href='' class='fa fa-2x fa-instagram'></a>&nbsp;
-          <a href='' class='fa fa-2x fa-linkedin'></a>&nbsp;
-          <a href='' class='fa fa-2x fa-github'></a>
+          <strong>Social</strong><br>
+          <a href='https://www.facebook.com/{{usernames["facebook"]}}' class='fa fa-2x fa-facebook'></a>&nbsp;
+          <a href='https://twitter.com/{{usernames["twitter"]}}' class='fa fa-2x fa-twitter'></a>&nbsp;
+          <a href='https://www.instagram.com/u/{{usernames["instagram"]}}' class='fa fa-2x fa-instagram'></a>&nbsp;
+          <a href='https://www.linkedin.com/{{usernames["linkedin"]}}' class='fa fa-2x fa-linkedin'></a>&nbsp;
+          <a href='https://github.com/{{usernames["github"]}}' class='fa fa-2x fa-github'></a>
         </p>
       </footer>
     </div>

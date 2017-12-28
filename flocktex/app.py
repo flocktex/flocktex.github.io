@@ -1,3 +1,4 @@
+import functools
 import os
 import shutil
 import sys
@@ -10,6 +11,25 @@ from flask_frozen import Freezer
 
 app = Flask(__name__)
 freezer = Freezer(app)
+
+
+BASE_TEMPLATE_VARS = {
+    'usernames': {
+        'facebook': '',
+        'instagram': '',
+        'linkedin': '',
+        'twitter': '',
+        'github': 'flocktex',
+    },
+    'copyright_from_year': 2017,
+    'copyright_to_year': 2018,
+    'company_bio': 'Our company specializes in providing a high quality '
+                   'laser cutting solution customized for the textile '
+                   'industry. '
+}
+
+
+render_template = functools.partial(render_template, **BASE_TEMPLATE_VARS)
 
 
 @app.route('/')
