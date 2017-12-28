@@ -3,3 +3,13 @@
 {% block title %}
   Downloads | Flock Tex
 {% endblock %}
+
+{% block content %}
+  <div class='container'>
+    <ul style='list-style-type:none'>
+    {% for file in files %}
+      <li><a href='{{url_for("static", filename="downloads/" + file)}}' class='fa fa-file'>&nbsp;{{file}}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

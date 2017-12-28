@@ -48,7 +48,9 @@ def products():
 
 @app.route('/downloads/')
 def downloads():
-    return render_template('downloads.html')
+    files = os.listdir(os.path.join(os.path.dirname(__file__),
+                                    'static/downloads'))
+    return render_template('downloads.html', files=files)
 
 
 @app.route('/contact/')
