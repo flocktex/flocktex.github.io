@@ -1,0 +1,24 @@
+language: python
+python:
+  - "3.6"
+
+install:
+  - pip install pipenv
+  - pipenv install
+
+script:
+  - python flocktex/app.py build
+  - find . ! -path './.git**' ! -path './flocktex/build**' ! -path './flocktex' -delete
+  - cp -r flocktex/build/** ./
+  - rm -r flocktex
+  - ls
+
+notifications:
+  email: false
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: flask
