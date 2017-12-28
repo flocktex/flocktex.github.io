@@ -5,7 +5,6 @@ import sys
 
 from flask import Flask
 from flask import render_template
-from flask_flatpages import FlatPages
 from flask_frozen import Freezer
 
 

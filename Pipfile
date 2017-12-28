@@ -9,7 +9,6 @@ name = "pypi"
 
 "jinja2" = "*"
 flask = "*"
-flask-flatpages = "*"
 frozen-flask = "*"
 
 
