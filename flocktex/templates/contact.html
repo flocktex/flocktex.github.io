@@ -3,3 +3,21 @@
 {% block title %}
 Contact Us | Flock Tex
 {% endblock %}
+
+{% block content %}
+<div class='container'>
+  <div class='row'>
+    <div class='contact-card col-md-4 col-sd-12 col-xs-12'>
+      {% for phone in phones %}
+        <a href='tel:{{phone["number"]}}' class='fa fa-phone'></a>&nbsp; {{phone["name"]}}<br>
+      {% endfor %}
+
+      {% for email in emails %}
+        <a href='mailto:{{email}}' class='fa fa-envelope'></a>&nbsp; {{email}}<br>
+      {% endfor %}
+
+      <i class='fa fa-map-marker'></i>&nbsp; {{address}}<br>
+    </div>
+  </div>
+</div>
+{% endblock %}

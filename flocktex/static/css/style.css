@@ -1,3 +1,12 @@
+div a {
+  color: black;
+}
+
+div a:hover {
+  color: gray;
+  text-decoration: none;
+}
+
 .nav-item-container ul li {
   display: inline;
   margin: 1em 0 0 0;
@@ -63,11 +72,7 @@
   border-left-style: solid;
 }
 
-.footer-container p a {
-  color: black;
+.contact-card {
+  border-style: solid;
 }
 
-.footer-container p a:hover {
-  color: gray;
-  text-decoration: none;
-}

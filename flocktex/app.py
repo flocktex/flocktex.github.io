@@ -54,7 +54,25 @@ def downloads():
 
 @app.route('/contact/')
 def contact():
-    return render_template('contact.html')
+    template_vars = {
+        'address': '3rd Floor, Plot No. 20, Mahesh Ind. Estate, Opp. Torrent '
+                   'Power, Anjana Farm, Surat - 395003',
+        'emails': [
+            "info@flocktex.in",
+        ],
+        'phones': [
+        {
+            'number': '+91-99-30-991533',
+            'name': 'Pragnesh Mangukiya',
+        },
+        {
+            'number': '+91-98-19-642719',
+            'name': 'Yatin Kapasi',
+        },
+        ],
+    }
+
+    return render_template('contact.html', **template_vars)
 
 
 if __name__ == '__main__':
