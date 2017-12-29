@@ -12,7 +12,7 @@
 
   <body>
     <div id='navbar' class='container'>
-      <nav class='row'>
+      <nav class='row hidden-xs hidden-sm'>
         <div class='col-md-4 nav-item-container'>
           <ul>
             <li class='col-md-6'>
@@ -36,6 +36,19 @@
             <li class='col-md-6'>
               <a href='{{ url_for("contact") }}' class='fa fa-address-book'>&nbsp; Contact Us</a>
             </li>
+          </ul>
+        </div>
+      </nav>
+
+      <nav class='row visible-xs visible-sm'>
+        <div class='col-md-4 mobile-nav-container'>
+          <button class='fa fa-bars' onclick=toggle_nav_drop_down()>&nbsp; Menu</button>
+          <ul class='hidden-xs hidden-sm' style='list-style-type:none;'>
+            <li><a href='{{ url_for("home") }}' class='fa fa-home'>&nbsp; Home</a></li>
+            <li><a href='{{ url_for("about") }}' class='fa fa-user'>&nbsp; About</a></li>
+            <li><a href='{{ url_for("products") }}' class='fa fa-cogs'>&nbsp; Products</a></li>
+            <li><a href='{{ url_for("downloads") }}' class='fa fa-download'>&nbsp; Downloads</a></li>
+            <li><a href='{{ url_for("contact") }}' class='fa fa-address-book'>&nbsp; Contact Us</a></li>
           </ul>
         </div>
       </nav>
@@ -67,9 +80,35 @@
     </div>
 
   <script>
-    selector = '.nav-item-container ul li a[href="' + window.location.pathname + '"]';
-    element = document.querySelector(selector);
+    // Focus on currently opened page
+
+    // For md and lg screens' nav
+    big_screen_container = '.nav-item-container'
+    selector = ' ul li a[href="' + window.location.pathname + '"]';
+    element = document.querySelector(big_screen_container + selector);
     element.style["background-color"] = 'grey';
+
+    // For xs and sm screens' nav
+    small_screen_container = '.mobile-nav-container';
+    element = document.querySelector(small_screen_container + selector);
+    element.style["color"] = 'grey';
+  </script>
+
+  <script>
+    function toggle_nav_drop_down() {
+      selector = 'div.mobile-nav-container ul';
+      element = document.querySelector(selector);
+
+      switch(element.className) {
+        case 'visible-xs visible-sm':
+          element.className = 'hidden-xs hidden-sm';
+          break;
+        case 'hidden-xs hidden-sm':
+          element.className = 'visible-xs visible-sm';
+          break;
+      }
+      console.log('toggle');
+    }
   </script>
 
   </body>
