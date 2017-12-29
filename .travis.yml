@@ -11,6 +11,7 @@ script:
   - find . ! -path './.git**' ! -path './flocktex/build**' ! -path './flocktex' -delete
   - cp -r flocktex/build/** ./
   - rm -r flocktex
+  - echo "www.flocktex.in" > CNAME
   - ls
 
 notifications:
