@@ -48,9 +48,12 @@ def products():
 
 @app.route('/downloads/')
 def downloads():
+    ignore = [
+        '.gitignore'
+    ]
     files = os.listdir(os.path.join(os.path.dirname(__file__),
                                     'static/downloads'))
-    return render_template('downloads.html', files=files)
+    return render_template('downloads.html', files=set(files) - set(ignore))
 
 
 @app.route('/contact/')
