@@ -1,3 +1,13 @@
+{% macro to_array(container, var_name) %}
+  function () {
+    var tmp = [];
+    {% for element in container %}
+    tmp.push("{{element}}");
+    {% endfor %}
+    return tmp;
+  }();
+{%- endmacro %}
+
 <!doctype html>
 <html>
 
@@ -109,6 +119,20 @@
       }
       console.log('toggle');
     }
+  </script>
+
+  <script>
+    // for background image
+    var div = document.createElement("div");
+    div.className = 'background-overlay';
+    var cover_images = {{to_array(cover_images)}};
+    div.style.backgroundImage = "url(" + "/static/" + cover_images[Math.floor(Math.random()*cover_images.length)] + ")";
+    document.body.append(div);
+
+    // black overlay div
+    var div = document.createElement("div");
+    div.className = 'black-overlay';
+    document.body.append(div);
   </script>
 
   </body>

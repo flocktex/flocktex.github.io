@@ -1,5 +1,6 @@
 import functools
 import os
+from os.path import join, dirname, relpath
 import shutil
 import sys
 
@@ -10,6 +11,13 @@ from flask_frozen import Freezer
 
 app = Flask(__name__)
 freezer = Freezer(app)
+
+STATIC_FOLDER_PATH = join(dirname(__file__), 'static')
+
+cover_images_path = list(map(lambda x: join('images', 'cover', x),
+                             os.listdir(join(STATIC_FOLDER_PATH,
+                                             'images',
+                                             'cover'))))
 
 
 BASE_TEMPLATE_VARS = {
@@ -24,7 +32,8 @@ BASE_TEMPLATE_VARS = {
     'copyright_to_year': 2018,
     'company_bio': 'Our company specializes in providing a high quality '
                    'laser cutting solution customized for the textile '
-                   'industry. '
+                   'industry. ',
+    'cover_images': cover_images_path,
 }
 
 
@@ -51,8 +60,8 @@ def downloads():
     ignore = [
         '.gitignore'
     ]
-    files = os.listdir(os.path.join(os.path.dirname(__file__),
-                                    'static/downloads'))
+    files = os.listdir(join(dirname(__file__),
+                            'static/downloads'))
     return render_template('downloads.html', files=set(files) - set(ignore))
 
 
@@ -82,7 +91,7 @@ def contact():
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":
         try:
-            shutil.rmtree(os.path.join(os.path.dirname(__file__), 'build'))
+            shutil.rmtree(join(dirname(__file__), 'build'))
         except FileNotFoundError:
             # build dir doesn't exist; do nothing.
             pass
