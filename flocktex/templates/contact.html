@@ -9,14 +9,26 @@ Contact Us | Flock Tex
   <div class='row'>
     <div class='contact-card col-md-4 col-sd-12 col-xs-12'>
       {% for phone in phones %}
-        <a href='tel:{{phone["number"]}}' class='fa fa-phone'></a>&nbsp; {{phone["name"]}}<br>
+        <div class='row'>
+        <a href='tel:{{phone["number"]}}' class="fa fa-phone col-md-1 col-sd-1 col-xs-1"></a>
+        <div class='col-md-11 col-sd-11 col-xs-11'>
+          {{phone["name"]}}<br>
+          <a href='tel:{{phone["number"]}}'>{{phone["number"]}}</a><br>
+        </div>
+        </div>
       {% endfor %}
 
       {% for email in emails %}
-        <a href='mailto:{{email}}' class='fa fa-envelope'></a>&nbsp; {{email}}<br>
+        <div class='row'>
+        <a href='mailto:{{email}}' class='fa fa-envelope col-md-1 col-xs-1 col-sd-1'></a>
+        <span class='col-md-11 col-xs-11 col-sd-11'><a href='mailto:{{email}}'>{{email}}</a></span><br>
+        </div>
       {% endfor %}
 
-      <i class='fa fa-map-marker'></i>&nbsp; {{address}}<br>
+      <div class='row'>
+        <i class='fa fa-map-marker col-md-1 col-sd-1 col-xs-1'></i>
+        <span class='col-md-11 col-sd-11 col-xs-11'>{{address}}</span><br>
+      </div>
     </div>
   </div>
 </div>
