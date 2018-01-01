@@ -21,6 +21,7 @@
   </head>
 
   <body>
+    <div id='loading'>Loading...</div>
     <div id='navbar' class='container'>
       <nav class='row hidden-xs hidden-sm'>
         <div class='col-md-4 nav-item-container'>
@@ -135,5 +136,11 @@
     document.body.append(div);
   </script>
 
+  <script>
+    // loading
+    window.onload = function() {
+      document.getElementById('loading').style.visibility = 'hidden';
+    };
+  </script>
   </body>
 </html>
