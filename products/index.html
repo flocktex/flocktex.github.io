@@ -61,8 +61,123 @@
     <hr>
 
     
+<div class='container'>
+  
+    <div class='product-card row' onclick='toggle_product_card()' style='cursor: pointer'>
+      <span><i class='fa fa-plus fa-2x col-md-1 col-xs-1 col-sm-1'></i></span>
+      <div class='col-md-11 col-xs-11 col-sm-11'>
+        <strong>FF-1216Y-2</strong><br>
+        Machine with advance technology operating with double head, each head working separately at the same time.
+      </div>
+    </div>
+
+    <div style='display: none' class='product-description-card'>
+      <div class='row'>
+        <div class='specifications col-md-4 col-sm-12 col-xs-12'>
+          <strong style='font-size: 2em'>Specifications: </strong>
+          <ul>
+            
+            <li>Model No.: FF-1216Y-2</li>
+            
+            <li>Laser Head: Single / Double</li>
+            
+            <li>Laser: CO2 laser tube</li>
+            
+            <li>Cooling System: AC chiller</li>
+            
+            <li>Laser Tube Power: 80w, 100w, 130w, 150w</li>
+            
+            <li>Power Supply: AC220 ± 5% / 50Hz</li>
+            
+            <li>Cutting Deepness: &lt;= 10mm</li>
+            
+            <li>Dimensions: 2510 x 2160 x 2018.5mm (W x L x H)</li>
+            
+            <li>Working Area: 1600 x 1200mm (W x L)</li>
+            
+            <li>Weight: ± 1100 kg.</li>
+            
+          </ul>
+        </div>
+        <div class='col-md-4 col-sm-12 col-xs-12'>
+          <img src='/static/images/products/ff_1216y_2/main.png' class='fit-parent img-responsive img-thumbnail'>
+        </div>
+        <div class='features col-md-4 col-sm-12 col-xs-12'>
+          <strong style='font-size: 2em'>Features: </strong>
+          <ul>
+            
+            <li>High precision cutting, reducing wastage of material</li>
+            
+            <li>Fully automatic working reduce labour cost</li>
+            
+            <li>High accuracy cutting for material beyond format</li>
+            
+            <li>Smooth cutting edge with precised product quality</li>
+            
+            <li>Friendly interface</li>
+            
+            <li>Super high recognition</li>
+            
+          </ul>
+        </div><br>
+
+        <div class='col-md-12 col-xs-12 col-sm-12'>
+          <strong style='text-align:center; font-size:2em'>Applications: </strong>
+        </div>
+
+        
+          <div class='col-md-4 col-sm-12 col-xs-12' style='padding-top:0.25em'>
+            <span><strong>Embroidery Patch</strong></span><br>
+            <img src='/static/images/products/ff_1216y_2/embroidery_patch.jpg' class='fit-parent img-responsive img-thumbnail'>
+          </div>
+        
+          <div class='col-md-4 col-sm-12 col-xs-12' style='padding-top:0.25em'>
+            <span><strong>Embroidery Lace</strong></span><br>
+            <img src='/static/images/products/ff_1216y_2/embroidery_lace.jpg' class='fit-parent img-responsive img-thumbnail'>
+          </div>
+        
+          <div class='col-md-4 col-sm-12 col-xs-12' style='padding-top:0.25em'>
+            <span><strong>Shoes Upper</strong></span><br>
+            <img src='/static/images/products/ff_1216y_2/shoes_upper.jpg' class='fit-parent img-responsive img-thumbnail'>
+          </div>
+        
+          <div class='col-md-4 col-sm-12 col-xs-12' style='padding-top:0.25em'>
+            <span><strong>Undergarments / Lingerie</strong></span><br>
+            <img src='/static/images/products/ff_1216y_2/undergarments_lingerie.jpg' class='fit-parent img-responsive img-thumbnail'>
+          </div>
+        
+          <div class='col-md-4 col-sm-12 col-xs-12' style='padding-top:0.25em'>
+            <span><strong>Double Layered Patch</strong></span><br>
+            <img src='/static/images/products/ff_1216y_2/double_layered_patch.jpg' class='fit-parent img-responsive img-thumbnail'>
+          </div>
+        
+          <div class='col-md-4 col-sm-12 col-xs-12' style='padding-top:0.25em'>
+            <span><strong>Jacquard Lace</strong></span><br>
+            <img src='/static/images/products/ff_1216y_2/jacquard_lace.jpg' class='fit-parent img-responsive img-thumbnail'>
+          </div>
+        
+      </div>
+    </div>
 
     
+  
+</div>
+<script>
+  function toggle_product_card() {
+    var divs = document.getElementsByClassName('product-description-card');
+    for(var i = 0; i < divs.length; i++) {
+      switch(divs[i].style.display) {
+        case 'none':
+          divs[i].style.display = 'block';
+          break;
+        case 'block':
+          divs[i].style.display = 'none';
+          break;
+      }
+    }
+  }
+</script>
+
 
     <div class='container footer-container'>
       <hr>
