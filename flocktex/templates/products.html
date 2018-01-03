@@ -26,7 +26,7 @@
           </ul>
         </div>
         <div class='col-md-4 col-sm-12 col-xs-12'>
-          <img src='{{url_for("static", filename="images/products/" + "_".join(prod["name"].lower().replace("-", "_").split())) + "/main.png"}}' class='fit-parent img-responsive img-thumbnail'>
+          <img src='{{url_for("static", filename="images/products/" + "_".join(prod["name"].lower().replace("-", "_").split()) + "/main.png")}}' class='fit-parent img-responsive img-thumbnail'>
         </div>
         <div class='features col-md-4 col-sm-12 col-xs-12'>
           <strong style='font-size: 2em'>Features: </strong>
@@ -44,7 +44,7 @@
         {% for application in prod["applications"] %}
           <div class='col-md-4 col-sm-12 col-xs-12' style='padding-top:0.25em'>
             <span><strong>{{application["name"]}}</strong></span><br>
-            <img src='{{url_for("static", filename="images/products/" + "_".join(prod["name"].lower().replace("-", "_").split())) + "/" + application["img_name"] + ".jpg"}}' class='fit-parent img-responsive img-thumbnail'>
+            <img src='{{url_for("static", filename="images/products/" + "_".join(prod["name"].lower().replace("-", "_").split()) + "/" + application["img_name"] + ".jpg")}}' class='fit-parent img-responsive img-thumbnail'>
           </div>
         {% endfor %}
       </div>
