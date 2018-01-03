@@ -110,3 +110,17 @@ div a:hover {
   background-color: white;
   box-size: border;
 }
+
+.product-card {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 0.25em;
+}
+
+.product-description-card {
+  padding-top: 1em;
+}
+
+.fit-parent {
+  width: 100%;
+  height: auto;
+}

@@ -52,7 +52,48 @@ def about():
 
 @app.route('/products/')
 def products():
-    return render_template('products.html')
+    prods = [
+    {
+        'name': 'FF-1216Y-2',
+        'description': 'Machine with advance technology operating with double '
+                       'head, each head working separately at the same time.',
+        'features': [
+            'High precision cutting, reducing wastage of material',
+            'Fully automatic working reduce labour cost',
+            'High accuracy cutting for material beyond format',
+            'Smooth cutting edge with precised product quality',
+            'Friendly interface',
+            'Super high recognition',
+        ],
+        'applications': [
+            {'name': 'Embroidery Patch',
+             'img_name': 'embroidery_patch'},
+            {'name': 'Embroidery Lace',
+             'img_name': 'embroidery_lace'},
+            {'name': 'Shoes Upper',
+             'img_name': 'shoes_upper'},
+            {'name': 'Undergarments / Lingerie',
+             'img_name': 'undergarments_lingerie'},
+            {'name': 'Double Layered Patch',
+             'img_name': 'double_layered_patch'},
+            {'name': 'Jacquard Lace',
+             'img_name': 'jacquard_lace'},
+        ],
+        'specifications': {
+            'Model No.': 'FF-1216Y-2',
+            'Laser Head': 'Single / Double',
+            'Laser': 'CO2 laser tube',
+            'Cooling System': 'AC chiller',
+            'Laser Tube Power': '80w, 100w, 130w, 150w',
+            'Power Supply': 'AC220 ± 5% / 50Hz',
+            'Cutting Deepness': '<= 10mm',
+            'Dimensions': '2510 x 2160 x 2018.5mm (W x L x H)',
+            'Working Area': '1600 x 1200mm (W x L)',
+            'Weight': '± 1100 kg.',
+        },
+    },
+    ]
+    return render_template('products.html', prods=prods)
 
 
 @app.route('/downloads/')

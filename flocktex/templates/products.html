@@ -3,3 +3,69 @@
 {% block title %}
   Products | Flock Tex
 {% endblock %}
+
+{% block content %}
+<div class='container'>
+  {% for prod in prods %}
+    <div class='product-card row' onclick='toggle_product_card()' style='cursor: pointer'>
+      <span><i class='fa fa-plus fa-2x col-md-1 col-xs-1 col-sm-1'></i></span>
+      <div class='col-md-11 col-xs-11 col-sm-11'>
+        <strong>{{prod["name"]}}</strong><br>
+        {{prod["description"]}}
+      </div>
+    </div>
+
+    <div style='display: none' class='product-description-card'>
+      <div class='row'>
+        <div class='specifications col-md-4 col-sm-12 col-xs-12'>
+          <strong style='font-size: 2em'>Specifications: </strong>
+          <ul>
+            {% for name, value in prod["specifications"].items() %}
+            <li>{{name}}: {{value}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class='col-md-4 col-sm-12 col-xs-12'>
+          <img src='{{url_for("static", filename="images/products/" + "_".join(prod["name"].lower().replace("-", "_").split())) + "/main.png"}}' class='fit-parent img-responsive img-thumbnail'>
+        </div>
+        <div class='features col-md-4 col-sm-12 col-xs-12'>
+          <strong style='font-size: 2em'>Features: </strong>
+          <ul>
+            {% for feature in prod["features"] %}
+            <li>{{feature}}</li>
+            {% endfor %}
+          </ul>
+        </div><br>
+
+        <div class='col-md-12 col-xs-12 col-sm-12'>
+          <strong style='text-align:center; font-size:2em'>Applications: </strong>
+        </div>
+
+        {% for application in prod["applications"] %}
+          <div class='col-md-4 col-sm-12 col-xs-12' style='padding-top:0.25em'>
+            <span><strong>{{application["name"]}}</strong></span><br>
+            <img src='{{url_for("static", filename="images/products/" + "_".join(prod["name"].lower().replace("-", "_").split())) + "/" + application["img_name"] + ".jpg"}}' class='fit-parent img-responsive img-thumbnail'>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if not loop.last %}<hr>{% endif %}
+  {% endfor %}
+</div>
+<script>
+  function toggle_product_card() {
+    var divs = document.getElementsByClassName('product-description-card');
+    for(var i = 0; i < divs.length; i++) {
+      switch(divs[i].style.display) {
+        case 'none':
+          divs[i].style.display = 'block';
+          break;
+        case 'block':
+          divs[i].style.display = 'none';
+          break;
+      }
+    }
+  }
+</script>
+{% endblock %}
