@@ -10,6 +10,7 @@ name = "pypi"
 "jinja2" = "*"
 flask = "*"
 frozen-flask = "*"
+pillow = "*"
 
 
 [dev-packages]
