@@ -11,7 +11,7 @@ mv flocktex/build/** /tmp/build
 git remote rm origin
 git remote add origin https://$GITHUB_TOKEN@github.com/flocktex/flocktex.github.io.git
 git fetch origin
-git checkout master
+git checkout -f master
 rm -rf *
 mv -f /tmp/build/** ./
 echo "www.flocktex.in" > CNAME
