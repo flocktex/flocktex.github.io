@@ -29,7 +29,7 @@ BASE_TEMPLATE_VARS = {
         'instagram': 'flocktexin',
         'linkedin': 'FlockTexIn',
         'twitter': 'FlockTexIn',
-        'github': 'flocktexin',
+        'github': 'flocktex',
     },
     'copyright_from_year': 2017,
     'copyright_to_year': 2018,
