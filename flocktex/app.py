@@ -25,11 +25,11 @@ cover_images_path = list(map(lambda x: join('images', 'cover', x),
 
 BASE_TEMPLATE_VARS = {
     'usernames': {
-        'facebook': '',
+        'facebook': 'FlockTexIn',
         'instagram': '',
-        'linkedin': '',
-        'twitter': '',
-        'github': 'flocktex',
+        'linkedin': 'FlockTexIn',
+        'twitter': 'FlockTexIn',
+        'github': 'flocktexin',
     },
     'copyright_from_year': 2017,
     'copyright_to_year': 2018,
