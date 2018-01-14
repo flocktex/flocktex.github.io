@@ -168,9 +168,21 @@
 
   <script>
     // loading
+    var div = document.getElementById('loading')
+    var loading_timer = setInterval(loading_text, 500);
+
     window.onload = function() {
       document.getElementById('loading').style.visibility = 'hidden';
+      clearInterval(loading_timer);
     };
+
+    function loading_text() {
+      console.log('called');
+      var count = (div.innerHTML.match(/\./g)||[]).length;
+      if (div.style.visibility != 'hidden') {
+        div.innerHTML = 'Loading' + '.'.repeat((count + 1) % 4);
+      }
+    }
   </script>
 
 <!--Start of Tawk.to Script-->
