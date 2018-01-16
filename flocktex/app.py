@@ -58,7 +58,8 @@ def about():
 def products():
     prods = [
     {
-        'name': 'FF-1216Y-2',
+        'name': 'Falcon',
+        'model': 'FF-1216Y-2',
         'description': 'Machine with advance technology operating with double '
                        'head, each head working separately at the same time.',
         'features': [
