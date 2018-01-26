@@ -3,7 +3,7 @@
 set -e -x
 
 # build
-python flocktex/app.py build
+python flocktex/app.py build -opt
 mkdir /tmp/build
 mv flocktex/build/** /tmp/build
 

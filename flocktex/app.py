@@ -134,33 +134,34 @@ def contact():
     return render_template('contact.html', **template_vars)
 
 
-def build():
+def build(optimize=False):
     # remove build dir if exists
     if os.path.exists(join(dirname(__file__), 'build')):
         shutil.rmtree(join(dirname(__file__), 'build'))
 
     # compress images
-    globs = [
-        '**/*.JPG',
-        '**/*.jpg',
-        '**/*.JPEG'
-        '**/*.jpeg',
-        '**/*.PNG',
-        '**/*.png',
-    ]
-    globs = list(map(lambda x: join(dirname(__file__), 'static', 'images', x),
-                     globs))
+    if optimize:
+        globs = [
+            '**/*.JPG',
+            '**/*.jpg',
+            '**/*.JPEG'
+            '**/*.jpeg',
+            '**/*.PNG',
+            '**/*.png',
+        ]
+        globs = list(map(lambda x: join(dirname(__file__), 'static', 'images', x),
+                         globs))
 
-    image_files = []
-    for path in globs:
-        for file_path in glob.glob(path, recursive=True):
-            image_files.append(os.path.abspath(file_path))
+        image_files = []
+        for path in globs:
+            for file_path in glob.glob(path, recursive=True):
+                image_files.append(os.path.abspath(file_path))
 
-    for file in image_files:
-        print("Compressing:", file)
-        image = Image.open(file)
-        if file.split('.')[-1] in ['jpg', 'jpeg', 'JPG', 'JPEG']:
-            image.save(file, "JPEG", optimize=True, quality=85)
+        for file in image_files:
+            print("Compressing:", file)
+            image = Image.open(file)
+            if file.split('.')[-1] in ['jpg', 'jpeg', 'JPG', 'JPEG']:
+                image.save(file, "JPEG", optimize=True, quality=85)
 
     # build
     freezer.freeze()
@@ -168,6 +169,7 @@ def build():
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":
-        build()
+        optimize = '-opt' in sys.argv
+        build(optimize)
     else:
         app.run(debug=True)
