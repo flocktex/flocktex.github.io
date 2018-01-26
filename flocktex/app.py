@@ -40,8 +40,39 @@ BASE_TEMPLATE_VARS = {
     'cover_images': cover_images_path,
 }
 
+ADDRESS = ('3rd Floor, Plot No. 20, Mahesh Ind. Estate, Opp. Torrent '
+           'Power, Anjana Farm, Surat - 395003')
+
+
+QRs = {
+    'pragnesh': {
+        'name': 'Pragnesh Mangukiya',
+        'phone': '+91-99-30-991533',
+        'email': 'info@flocktex.in',
+        'address': ADDRESS,
+    },
+    'yatin': {
+        'name': 'Yatin Kapasi',
+        'phone': '+91-98-19-642719',
+        'email': 'info@flocktex.in',
+        'address': ADDRESS,
+    },
+    'sanjay': {
+        'name': 'Sanjay Dankhara',
+        'phone': '+91-98-20-233382',
+        'email': 'info@flocktex.in',
+        'address': ADDRESS,
+    },
+}
+
 
 render_template = functools.partial(render_template, **BASE_TEMPLATE_VARS)
+
+
+@freezer.register_generator
+def qr_url_generator():
+    for endpoint in QRs.keys():
+        yield 'qr', {'name': endpoint}
 
 
 @app.route('/')
@@ -114,8 +145,7 @@ def downloads():
 @app.route('/contact/')
 def contact():
     template_vars = {
-        'address': '3rd Floor, Plot No. 20, Mahesh Ind. Estate, Opp. Torrent '
-                   'Power, Anjana Farm, Surat - 395003',
+        'address': ADDRESS,
         'emails': [
             "info@flocktex.in",
         ],
@@ -132,6 +162,11 @@ def contact():
     }
 
     return render_template('contact.html', **template_vars)
+
+
+@app.route('/qr/<name>/')
+def qr(name):
+    return render_template('qr.html', **QRs[name])
 
 
 def build(optimize=False):
