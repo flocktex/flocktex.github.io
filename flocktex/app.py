@@ -169,6 +169,17 @@ def qr(name):
     return render_template('qr.html', **QRs[name])
 
 
+@app.route('/videos/')
+def videos():
+    video_ids = [
+        'BHzoEmrEbTw',
+        'TZJaYwUZ3To',
+        'CQ2mwjU0tnE',
+        '1pH8ogJCPRc',
+    ]
+    return render_template('videos.html', video_ids=video_ids)
+
+
 def build(optimize=False):
     # remove build dir if exists
     if os.path.exists(join(dirname(__file__), 'build')):

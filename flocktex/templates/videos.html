@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Videos | Flock Tex
+{% endblock %}
+
+{% block content %}
+<h1 style='text-align:center;'>Videos</h1>
+<div class='container embed-container'>
+{% for video_id in video_ids %}
+  <div class='row'>
+  <span class='col-md-2 col-xs-0 col-sm-0'></span>
+  <iframe class='col-md-8 col-xs-12 col-sm-12' width="560" height="315" src="https://www.youtube.com/embed/{{video_id}}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <span class='col-md-2 col-xs-0 col-sm-0'></span>
+  </div><br>
+{% endfor %}
+</div>
+{% endblock %}
