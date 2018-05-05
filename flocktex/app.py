@@ -2,6 +2,7 @@ import functools
 import glob
 import os
 from os.path import join, dirname, relpath
+from pathlib import Path
 import subprocess
 import shutil
 import sys
@@ -180,6 +181,14 @@ def videos():
     return render_template('videos.html', video_ids=video_ids)
 
 
+def sizeof_fmt(num, suffix='B'):
+    for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
+        if abs(num) < 1024.0:
+            return "%3.1f%s%s" % (num, unit, suffix)
+        num /= 1024.0
+    return "%.1f%s%s" % (num, 'Yi', suffix)
+
+
 def build(optimize=False):
     # remove build dir if exists
     if os.path.exists(join(dirname(__file__), 'build')):
@@ -203,11 +212,15 @@ def build(optimize=False):
             for file_path in glob.glob(path, recursive=True):
                 image_files.append(os.path.abspath(file_path))
 
+
         for file in image_files:
-            print("Compressing:", file)
             image = Image.open(file)
             if file.split('.')[-1] in ['jpg', 'jpeg', 'JPG', 'JPEG']:
-                image.save(file, "JPEG", optimize=True, quality=85)
+                old_size = os.path.getsize(file)
+                image.save(Path(file), "JPEG", optimize=True, quality=60)
+                new_size = os.path.getsize(file)
+                print(file, "compressed from", sizeof_fmt(old_size), "to",
+                      sizeof_fmt(new_size))
 
     # build
     freezer.freeze()

@@ -4,8 +4,7 @@ set -e -x
 
 # build
 python flocktex/app.py build -opt
-mkdir /tmp/build
-mv flocktex/build/** /tmp/build
+mv flocktex/build /tmp
 
 # commit
 git remote rm origin
