@@ -1,3 +1,4 @@
 flask
+Frozen-Flask
 pipenv
 pillow
