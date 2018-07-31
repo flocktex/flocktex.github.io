@@ -41,8 +41,10 @@ BASE_TEMPLATE_VARS = {
     'cover_images': cover_images_path,
 }
 
-ADDRESS = ('3rd Floor, Plot No. 20, Mahesh Ind. Estate, Opp. Torrent '
-           'Power, Anjana Farm, Surat - 395003')
+SURAT_ADDRESS = ('3rd Floor, Plot No. 20, Mahesh Ind. Estate, Opp. Torrent '
+                 'Power, Anjana Farm, Surat - 395003')
+SOUTH_ADDRESS = ('12/87a, KRG Nagar Back Side, Kallappachi Street, '
+                 'Rakkiyapalayam, Avinashi Taluk, Tiruppur')
 
 
 QRs = {
@@ -63,6 +65,12 @@ QRs = {
         'phone': '+91-98-20-233382',
         'email': 'info@flocktex.in',
         'address': ADDRESS,
+    },
+    'anand': {
+        'name': 'P. Anandhakumar',
+        'phone': '+91-96-29-077780',
+        'email': 'info@flocktex.in',
+        'address': SOUTH_ADDRESS,
     },
 }
 
@@ -146,19 +154,26 @@ def downloads():
 @app.route('/contact/')
 def contact():
     template_vars = {
-        'address': ADDRESS,
+        'addresses': [
+            SURAT_ADDRESS,
+            SOUTH_ADDRESS,
+        ],
         'emails': [
             "info@flocktex.in",
         ],
         'phones': [
-        {
-            'number': '+91-99-30-991533',
-            'name': 'Pragnesh Mangukiya',
-        },
-        {
-            'number': '+91-98-19-642719',
-            'name': 'Yatin Kapasi',
-        },
+            {
+                'number': QRs['pragnesh']['phone'],
+                'name': QRs['pragnesh']['name'],
+            },
+            {
+                'number': QRs['yatin']['phone'],
+                'name': QRs['yatin']['name'],
+            },
+            {
+                'number': QRs['anand']['phone'],
+                'name': QRs['anand']['name'],
+            },
         ],
     }
 
