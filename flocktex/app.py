@@ -52,19 +52,19 @@ QRs = {
         'name': 'Pragnesh Mangukiya',
         'phone': '+91-99-30-991533',
         'email': 'info@flocktex.in',
-        'address': ADDRESS,
+        'address': SURAT_ADDRESS,
     },
     'yatin': {
         'name': 'Yatin Kapasi',
         'phone': '+91-98-19-642719',
         'email': 'info@flocktex.in',
-        'address': ADDRESS,
+        'address': SURAT_ADDRESS,
     },
     'sanjay': {
         'name': 'Sanjay Dankhara',
         'phone': '+91-98-20-233382',
         'email': 'info@flocktex.in',
-        'address': ADDRESS,
+        'address': SURAT_ADDRESS,
     },
     'anand': {
         'name': 'P. Anandhakumar',
